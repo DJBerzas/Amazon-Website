@@ -2,12 +2,12 @@ import {cart} from '../data/cart.js';
 import{products} from '../data/products.js';
 import { formatCurrency } from './utils.js/money.js';
 
-let cartSummaryHTML;
+let cartSummaryHTML = '';
 
 cart.forEach((cartItem) => {
   const productId = cartItem.productId;
 
-  let matchingProduct;
+  let matchingProduct ;
 
   products.forEach((product) => {
     if (product.id === productId){
