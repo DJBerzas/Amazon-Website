@@ -11,7 +11,7 @@ export function addToCart(productId){
 
 cart.forEach((cartItem) => {
  if (productId === cartItem.productId){
-    matchingItem = CartItem;
+    matchingItem = cartItem;
  }
 });
 
