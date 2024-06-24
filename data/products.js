@@ -90,6 +90,29 @@ const tshirt = new Clothing({
 
 export let products = [];
 
+export function loadProductsFetch(){
+  const promise = fetch
+  ('https://supersimplebackend.dev/products').then((reponse) =>{
+     return reponse.json();
+  }).then((productsData) =>{
+    products = productsData.map( (productDetails) => {
+      if(productDetails.type === 'clothing'){
+          return new Clothing(productDetails);
+      }
+     return new Product(productDetails);
+    });
+    
+  
+    
+  });
+  return promise;
+}
+/*
+loadProductsFetch().then (() => {
+  console.log('next step');
+});
+*/
+
 export function loadProducts(fun){
   const xhr = new XMLHttpRequest();
   xhr.addEventListener('load', () =>{
